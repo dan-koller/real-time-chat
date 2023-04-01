@@ -1,0 +1,183 @@
+body {
+    background-color: #fafafa;
+    font-family: "system-ui", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#login-page {
+    padding-top: 100px;
+    margin: auto;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.back-container {
+    position: relative;
+}
+
+.front-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.front-container1 {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.back-top {
+    background-color: #209de5;
+    height: 100px;
+}
+
+.back-main {
+    background-color: #f1f1f1;
+    height: calc(100vh - 100px);
+}
+
+#messages {
+    overflow-y: auto;
+}
+
+.message-container {
+    margin: 5px;
+}
+
+#users {
+    margin-right: 2px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid #bdbbbb; */
+    padding: 10px;
+    overflow-y: auto;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.user-container {
+    margin: 3px;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: #a9a9a9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-container:hover {
+    background-color: bisque;
+}
+
+.new-message-counter {
+    width: 18px;
+    height: 18px;
+    background-color: #05d305;
+    border-radius: 100%;
+    text-align: center;
+}
+
+#chat-with {
+    text-align: center;
+    font-size: 20px;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+}
+
+.sender {
+    margin-left: 10px;
+    font: 15px bold;
+    color: #646464;
+}
+
+.date {
+    font: 14px italic;
+    text-align: right;
+    color: #9b9b9b;
+    margin-right: 10px;
+}
+
+.message {
+    padding: 10px 10px 10px 15px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    white-space: pre-wrap;
+}
+
+#messages {
+    overflow-y: auto;
+    position: relative;
+    height: 450px;
+}
+
+#input-msg {
+    margin-left: 10px;
+    margin-right: 2px;
+    padding: 4px;
+    min-width: 70%;
+    outline: none;
+    border: 1px solid #bdbbbb;
+    border-radius: 5px;
+}
+
+#public-chat-btn {
+    width: 237px;
+    height: 83px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* This is a hacky way to align the users and chat messages nicely. This is not a good practice
+and will be removed in the future. */
+#btn-invisible {
+    background-color: transparent !important;
+    border: none !important;
+    color: transparent !important;
+    text-shadow: 0 0 0 transparent !important;
+    pointer-events: none;
+    font-size: .975rem;
+}
+
+#chat-page-inner {
+    display: flex;
+}
+
+#left {
+    width: 250px;
+}
+
+#left .container {
+    padding-right: 0;
+}
+
+#right {
+    width: 700px;
+}
+
+/* Experimental */
+#chat2 .form-control {
+border-color: transparent;
+}
+
+#chat2 .form-control:focus {
+border-color: transparent;
+box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}

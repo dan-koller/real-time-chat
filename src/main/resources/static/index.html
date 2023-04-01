@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <!--Bootstrap 5-->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <!--Font Awesome-->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<!--Login field where the user can set a name-->
+<div id="login-page">
+    <div id="login-error" style="visibility: hidden">User already online.</div>
+    <label><input id="input-username" type="text" placeholder="Enter username..."></label>
+    <label><input id="send-username-btn" type="button" value="Send"></label>
+</div>
+<!--Actual chatting page-->
+<div class="back-container">
+    <div class="container-fluid front-container">
+        <!-- Background colors -->
+        <div class="back-top"></div>
+        <div class="back-main"></div>
+    </div>
+    <div class="front-container1">
+        <div id="chat-page" class="hidden">
+            <div id="chat-with">Public chat</div>
+            <div id="chat-page-inner">
+                <div id="left">
+                    <section style="background-color: #eee;">
+                        <div class="container py-3">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center p-3">
+                                        <h5 class="mb-0">Currently online</h5>
+                                    </div>
+                                    <div id="user-container">
+                                        <div id="users"></div>
+                                        <div>
+                                            <label>
+                                                <input id="public-chat-btn" class="btn btn-primary btn-sm" type="button"
+                                                       value="Public chat">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="right">
+                    <section style="background-color: #eee;">
+                        <div class="container py-3">
+                            <div id="chat-window" class="row d-flex justify-content-center">
+                                <div class="col">
+                                    <div class="card" id="chat2">
+                                        <div class="card-header d-flex justify-content-between align-items-center p-3">
+                                            <h5 class="mb-0">Chat</h5>
+                                            <!-- Spacer -->
+                                            <div class="flex-grow-1"></div>
+                                            <!-- Icons -->
+                                            <a class="ms-3 text-muted"><i class="fas fa-search"></i></a>
+                                            <a class="ms-3 text-muted"><i class="fas fa-ellipsis-v"></i></a>
+                                        </div>
+                                        <div class="card-body" id="messages" data-mdb-perfect-scrollbar="true">
+                                        </div>
+                                        <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
+                                            <canvas id="canvas" width="40" height="40"
+                                                    style="border-radius: 50%;"></canvas>
+                                            <input type="text" class="form-control form-control-lg" id="input-msg"
+                                                   style="font-style: normal;"
+                                                   placeholder="Type a message...">
+                                            <a class="ms-1 text-muted"><i class="fas fa-paperclip"></i></a>
+                                            <a class="ms-3 text-muted"><i class="fas fa-smile"></i></a>
+                                            <a class="ms-3" id="send-msg-btn"><i class="fas fa-paper-plane"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Stomp and sockjs-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<!--Custom script-->
+<script src="script.js"></script>
+</body>
+</html>
