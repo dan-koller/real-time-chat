@@ -67,19 +67,19 @@ statements, place the following imports before them):do
 
 You can refer to the following articles to get a better idea:
 
-[Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/) by
+- [Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/) by
 Spring;
-[Create a simple Chat application with Spring Boot and Websocket](https://o7planning.org/10719/create-a-simple-chat-application-with-spring-boot-and-websocket)
+- [Create a simple Chat application with Spring Boot and Websocket](https://o7planning.org/10719/create-a-simple-chat-application-with-spring-boot-and-websocket)
 by o7planning;
-[Getting Started with Spring WebSockets in Java](https://www.section.io/engineering-education/getting-started-with-spring-websockets/)
+- [Getting Started with Spring WebSockets in Java](https://www.section.io/engineering-education/getting-started-with-spring-websockets/)
 by John Amiscaray.
 
 Additional tutorials that can help you:
 
-[Spring Boot WebSocket: Chat Example on YouTube](https://www.youtube.com/watch?v=-ao3pX-UhQc) by Java master
-[Building a chat application with Spring Boot and WebSocket](https://www.callicoder.com/spring-boot-websocket-chat-example/)
+- [Spring Boot WebSocket: Chat Example on YouTube](https://www.youtube.com/watch?v=-ao3pX-UhQc) by Java master
+- [Building a chat application with Spring Boot and WebSocket](https://www.callicoder.com/spring-boot-websocket-chat-example/)
 by Callicoder
-[Build Spring Boot Chat Application from scratch](https://www.pixeltrice.com/build-spring-boot-chat-application-from-scratch/)
+- [Build Spring Boot Chat Application from scratch](https://www.pixeltrice.com/build-spring-boot-chat-application-from-scratch/)
 by PixelTrice
 
 ## Stage 4 - Login and extended messages
@@ -98,7 +98,6 @@ an
 example:
 
 ```java
-
 @Component
 public class WebSocketEvents {
 
