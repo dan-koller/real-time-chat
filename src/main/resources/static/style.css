@@ -13,18 +13,18 @@ body {
     align-items: center;
 }
 
-.back-container {
+.chat-container {
     position: relative;
 }
 
-.front-container {
+.back-container {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
 }
 
-.front-container1 {
+.front-container {
     position: absolute;
     top: 20px;
     left: 0;
@@ -35,12 +35,12 @@ body {
 
 .back-top {
     background-color: #209de5;
-    height: 100px;
+    height: 150px;
 }
 
 .back-main {
     background-color: #f1f1f1;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 150px);
 }
 
 #messages {
