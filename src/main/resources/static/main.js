@@ -70,8 +70,6 @@ function onPrivateMessageReceived(payload) {
     const messages = response.messages
     const messageType = response.messageType
 
-    console.warn("Message received: " + messages[0].sender + " " + messages[0].sendTo)
-
     if (chatWith.textContent === messages[0].sender || chatWith.textContent === messages[0].sendTo) {
         for (let i in messages) {
             appendMsg(messages[i].sender, messages[i].message, messages[i].date)
@@ -216,7 +214,7 @@ sendUsernameBtn.onclick = () => {
         .then(response => response.json()
             .then(data => {
                 for (let i in data) {
-                    if (username === data[i]) {
+                    if (this.username === data[i]) {
                         document.getElementById("login-error").style.visibility = "visible"
                         return
                     }
@@ -316,8 +314,6 @@ function generateAvatar() {
     ctx.font = "bold 20px system-ui";
     ctx.textAlign = "center";
     ctx.fillText(initials, radius + 5, (radius * 4) / 3 + margin);
-
-    console.log(canvas.toDataURL());
 
     return canvas.toDataURL();
 };
