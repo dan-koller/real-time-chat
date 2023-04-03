@@ -12,6 +12,11 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * This method is used to get all the users that are currently online.
+     *
+     * @return A list of all the users that are currently online
+     */
     @GetMapping("/users")
     public List<String> getOnlineUsers() {
         return userRepository.getUsers();

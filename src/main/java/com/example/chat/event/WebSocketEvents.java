@@ -15,6 +15,11 @@ public class WebSocketEvents {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * This method is used to remove a user from the list of users when the user disconnects.
+     *
+     * @param event The event that is triggered when a user disconnects
+     */
     @EventListener
     public void disconnect(SessionDisconnectEvent event) {
         String username = (String) StompHeaderAccessor.wrap(event.getMessage()).getSessionAttributes().get("username");

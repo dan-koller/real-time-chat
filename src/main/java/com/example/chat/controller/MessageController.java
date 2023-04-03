@@ -13,6 +13,11 @@ public class MessageController {
     @Autowired
     MessagesRepository messagesRepository;
 
+    /**
+     * This method is used to get all the public messages from the database.
+     *
+     * @return A list of all the public messages
+     */
     @GetMapping("/public-messages")
     public List<ChatMessage> getPublicMessages() {
         return messagesRepository.getPublicMessages();

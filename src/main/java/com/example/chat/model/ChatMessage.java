@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * This class is used to represent a message in the chat.
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
