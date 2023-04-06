@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 @Component
-public class WebSocketEvents {
+public class WebSocketEventListener {
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
     @Autowired
