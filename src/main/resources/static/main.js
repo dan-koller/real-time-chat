@@ -264,15 +264,32 @@ function getCurrentDate() {
     return `${day}.${month}.${year} ${hours}:${minutes}`;
 }
 
+// Extract the initials from a person's name
+const getInitials = (name) => {
+  // Split the name into words and get the first letter of each word
+  const initials = name
+    .split(" ")
+    .map((word) => word[0].toUpperCase())
+    .join("");
+
+  // Use the first initial if there's only one word in the name
+  if (initials.length === 1) {
+    return initials;
+  }
+
+  // Use the first two initials if there are more than two words in the name
+  const firstInitial = initials[0];
+  const lastInitial = initials.slice(-1);
+
+  // Combine the first and last initials
+  return `${firstInitial}${lastInitial}`;
+};
+
 // Function to generate a colorful avatar based on the user's name
 function generateAvatar() {
     name = this.username || "Anonymous";
-    let initials = name
-        .split(" ")
-        .map(function (str) {
-            return str ? str[0].toUpperCase() : "";
-        })
-        .join("");
+    const initials = getInitials(name);
+
     let canvas = document.getElementById("canvas");
     let radius = 20;
     let margin = 5;
