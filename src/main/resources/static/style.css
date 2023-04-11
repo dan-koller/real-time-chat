@@ -43,6 +43,10 @@ body {
     height: calc(100vh - 150px);
 }
 
+.background-color-light {
+    background-color: #eee;
+}
+
 #messages {
     overflow-y: auto;
 }
@@ -85,7 +89,7 @@ body {
     text-align: center;
 }
 
-#chat-with {
+#chat-title {
     text-align: center;
     font-size: 20px;
     color: #f1f1f1;

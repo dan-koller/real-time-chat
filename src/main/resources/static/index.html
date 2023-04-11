@@ -19,7 +19,8 @@
             referrerpolicy="no-referrer"
     />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="preload" href="style.css" as="style">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <!--Login field where the user can set a name-->
@@ -37,10 +38,10 @@
     </div>
     <div class="front-container">
         <div id="chat-page" class="hidden">
-            <div id="chat-with">Public chat</div>
+            <div id="chat-title">Real-time chat</div>
             <div id="chat-page-inner">
                 <div id="left">
-                    <div style="background-color: #eee;">
+                    <div class="background-color-light">
                         <div class="container py-3">
                             <div class="col">
                                 <div class="card">
@@ -62,13 +63,14 @@
                     </div>
                 </div>
                 <div id="right">
-                    <div style="background-color: #eee;">
+                    <div class="background-color-light">
                         <div class="container py-3">
                             <div id="chat-window" class="row d-flex justify-content-center">
                                 <div class="col">
                                     <div class="card" id="chat2">
                                         <div class="card-header d-flex justify-content-between align-items-center p-3">
-                                            <h5 class="mb-0">Chat</h5>
+                                            <!-- Partner -->
+                                            <h5 id="chat-with" class="mb-0">Public chat</h5>
                                             <!-- Spacer -->
                                             <div class="flex-grow-1"></div>
                                             <!-- Icons -->
