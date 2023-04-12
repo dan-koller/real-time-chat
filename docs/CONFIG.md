@@ -1,6 +1,12 @@
 # App Configuration
 
-## Docker setup
+If you want to use the app with RabbitMQ, you can use the following configuration to set up a local RabbitMQ server
+using Docker. Note that you need to update the routes in the `*Controller` classes to point to the correct RabbitMQ
+destination.
+
+**RabbitMQ does not support private messaging with the way we have implemented it.**
+
+## RabbitMQ Docker Setup
 
 - Create a docker container with the following command:
 
