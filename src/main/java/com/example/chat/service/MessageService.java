@@ -1,6 +1,8 @@
-package com.example.chat.persistence;
+package com.example.chat.service;
 
 import com.example.chat.model.ChatMessage;
+import com.example.chat.repository.MessageRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -9,34 +11,26 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @Component
-public class MessagesRepository {
-    List<ChatMessage> publicMessages = new CopyOnWriteArrayList<>();
+public class MessageService {
+    @Autowired
+    public MessageRepository messageRepository;
+    //    List<ChatMessage> publicMessages = new CopyOnWriteArrayList<>();
     Map<Map.Entry<String, String>, List<ChatMessage>> privateMessages = new ConcurrentHashMap<>();
 
-    /**
-     * This method is used to get all the public messages from the database.
-     *
-     * @return A list of all the public messages
-     */
     public List<ChatMessage> getPublicMessages() {
-        return publicMessages;
+        return messageRepository.findByMessageTypeIsNullOrderByDateAsc();
     }
 
-    /**
-     * This method is used to add a public message to the database.
-     *
-     * @param msg The message that is added
-     */
     public void addPublicMessage(ChatMessage msg) {
-        publicMessages.add(msg);
+//        publicMessages.add(msg);
+        messageRepository.save(msg);
     }
 
-    /**
-     * This method is used to add a private message to the database.
-     *
-     * @param msg The message that is added
-     */
     public void addPrivateMessage(ChatMessage msg) {
+        // Save the message to the database
+        messageRepository.save(msg);
+
+        // Store the message in the privateMessages map
         Map.Entry<String, String> entry = Map.entry(msg.getSender(), msg.getSendTo());
         if (!privateMessages.containsKey(entry)) {
             entry = Map.entry(msg.getSendTo(), msg.getSender());
@@ -48,18 +42,18 @@ public class MessagesRepository {
         }
     }
 
-    /**
-     * This method is used to get all the private messages between two users.
-     *
-     * @param userA The first user
-     * @param userB The second user
-     * @return A list of all the private messages between the two users
-     */
     public List<ChatMessage> getPrivateMessages(String userA, String userB) {
+        // Query the database for messages between userA and userB
+        List<ChatMessage> messages = messageRepository.findBySenderAndSendToOrSenderAndSendToOrderByDateAsc(userA, userB, userB, userA);
+
+        // Store the messages in the privateMessages map
         Map.Entry<String, String> entry = Map.entry(userA, userB);
         if (!privateMessages.containsKey(entry)) {
             entry = Map.entry(userB, userA);
         }
-        return privateMessages.get(entry);
+        privateMessages.put(entry, new CopyOnWriteArrayList<>(messages));
+
+        // Return the messages
+        return messages;
     }
 }
