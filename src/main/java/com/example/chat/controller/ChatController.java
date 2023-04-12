@@ -5,8 +5,8 @@ import com.example.chat.event.UserEventType;
 import com.example.chat.model.ChatMessage;
 import com.example.chat.model.MessageType;
 import com.example.chat.model.User;
-import com.example.chat.persistence.MessagesRepository;
-import com.example.chat.persistence.UserRepository;
+import com.example.chat.service.MessageService;
+import com.example.chat.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -24,9 +24,9 @@ public class ChatController {
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
     @Autowired
-    private MessagesRepository messagesRepository;
+    private MessageService messageService;
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     /**
      * This method is used to register a user in the chat. It will add the user to the list of users.
@@ -47,7 +47,7 @@ public class ChatController {
         }
         sessionAttributes.put("username", user.getUsername());
 //        simpMessageHeaderAccessor.getSessionAttributes().put("username", user.getUsername());
-        userRepository.addUser(user.getUsername());
+        userService.addUser(user.getUsername());
         return new UserEvent(user.getUsername(), UserEventType.JOINED);
     }
 
@@ -61,7 +61,7 @@ public class ChatController {
     @MessageMapping("/chat.send")
     @SendTo("/chat/public")
     public ChatMessage send(@Payload ChatMessage msg) {
-        messagesRepository.addPublicMessage(msg);
+        messageService.addPublicMessage(msg);
         return msg;
     }
 
@@ -77,13 +77,13 @@ public class ChatController {
     @MessageMapping("/chat.send.private")
     public void sendTo(@Payload ChatMessage msg) {
         if (msg.getMessageType() == MessageType.GET_ALL) {
-            List<ChatMessage> messages = messagesRepository.getPrivateMessages(msg.getSender(), msg.getSendTo());
+            List<ChatMessage> messages = messageService.getPrivateMessages(msg.getSender(), msg.getSendTo());
             if (messages != null) {
                 messagingTemplate.convertAndSendToUser(msg.getSender(), "/private",
                         Map.of("messageType", MessageType.GET_ALL, "messages", messages));
             }
         } else if (msg.getMessageType() == MessageType.PRIVATE) {
-            messagesRepository.addPrivateMessage(msg);
+            messageService.addPrivateMessage(msg);
             Map<String, Object> response = Map.of("messageType", MessageType.PRIVATE, "messages", List.of(msg));
             messagingTemplate.convertAndSendToUser(msg.getSendTo(), "/private", response);
             messagingTemplate.convertAndSendToUser(msg.getSender(), "/private", response);
