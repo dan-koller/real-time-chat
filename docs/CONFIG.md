@@ -28,4 +28,34 @@ docker restart rabbit-server
 
 The RabbitMQ management console is now available at http://localhost:8080.
 
+## MongoDB Docker Setup
 
+- Download the MongoDB Community Server Docker image:
+
+```bash
+docker pull mongo
+```
+
+_If you are on ARM, you need to use this image:_
+
+```bash
+docker pull arm64v8/mongo
+```
+
+- Create a docker container with the following command:
+
+```bash
+docker run -d --name mongo-server -p 27017:27017 mongo
+```
+
+_If you are on ARM, you need to use this command:_
+
+```bash
+docker run -d --name mongo-server -p 27017:27017 arm64v8/mongo
+```
+
+- Connect to the container:
+
+```bash
+docker exec -it mongo-server mongosh
+```
