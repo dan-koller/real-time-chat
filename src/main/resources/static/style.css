@@ -3,16 +3,6 @@ body {
     font-family: "system-ui", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-#login-page {
-    padding-top: 100px;
-    margin: auto;
-    width: 500px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
 .chat-container {
     position: relative;
 }
