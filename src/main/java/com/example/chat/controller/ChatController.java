@@ -29,10 +29,8 @@ public class ChatController {
     private UserService userService;
 
     /**
-     * This method is used to register a user in the chat. It will add the user to the list of users.
-     * It will also inform all subscribers that a new user has joined the chat.
-     * The session attributes are used to store the username of the user.
-     * The null check is to improve the code quality. It is not necessary.
+     * This method is used to register a user in the chat and to inform all subscribers that a new user has joined the
+     * chat. The session attributes are used to store the username of the user.
      *
      * @param user                      The user that is joining the chat
      * @param simpMessageHeaderAccessor The accessor that is used to access the session attributes
@@ -66,10 +64,8 @@ public class ChatController {
     }
 
     /**
-     * This method is used to send a private message to a user.
-     * It will also send the message to the sender and the receiver.
-     * There are two message types: GET_ALL and PRIVATE.
-     * GET_ALL is used to get all the messages between the sender and the receiver.
+     * This method is used to exchange private messages between two users.
+     * GET_ALL is used to get all the messages between the sender and the receiver (for chat history).
      * PRIVATE is used to send a private message to the receiver.
      *
      * @param msg The message that is sent
