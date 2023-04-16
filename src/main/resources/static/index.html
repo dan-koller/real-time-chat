@@ -15,24 +15,38 @@
 <!--Login field where the user can set a name-->
 <div id="login-page">
     <nav id="nav-login" class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Real-time chat</a>
+        <div id="nav-container" class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn0.iconfinder.com/data/icons/eon-social-media-contact-info-2/32/telegram_social_media_network_chat-64.png"
+                     alt="Logo" class="me-2" width="30" height="30">
+                Real-time chat
+            </a>
             <div id="login-error" style="visibility: hidden">User already online.</div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <form class="form-inline my-2 my-lg-0 d-flex">
-                <label><input id="input-username" class="form-control mr-2" type="text" placeholder="Username"
-                              aria-label="Username"></label>
-                <label><input id="send-username-btn" type="button" class="btn btn-outline-primary my-2 my-sm-0"
-                              value="Login"></label>
-            </form>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0 d-flex">
+                            <label>
+                                <input id="input-username" class="form-control me-2" type="text" placeholder="Username"
+                                       aria-label="Username">
+                            </label>
+                            <label>
+                                <input id="send-username-btn" type="button" class="btn btn-outline-primary my-2 my-sm-0"
+                                       value="Login">
+                            </label>
+                        </form>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </div>
 <!--Actual chatting page-->
-<div class="chat-container">
+<div class="chat-container mx-auto">
     <div class="container-fluid back-container">
         <!-- Background colors -->
         <div class="back-top"></div>

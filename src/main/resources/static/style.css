@@ -1,5 +1,7 @@
+
+
 body {
-    background-color: #fafafa;
+    background-color: #f1f1f1;
     font-family: "system-ui", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -26,6 +28,8 @@ body {
 .back-top {
     background-color: #209de5;
     height: 150px;
+    max-width: 1320px;
+    margin: 0 auto;
 }
 
 .back-main {

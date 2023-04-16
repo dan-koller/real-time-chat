@@ -13,6 +13,16 @@ let sockJS;
 let stompClient;
 let username;
 
+// Adjust the navbar on smaller screens
+(function adjustNavbar() {
+    const navContainer = document.getElementById("nav-container");
+    // On smaller screens, the navbar will be fluid
+    if (window.innerWidth <= 1440) {
+        navContainer.classList.remove("container");
+        navContainer.classList.add("container-fluid");
+    }
+})();
+
 // If the user presses the enter key, append the message to the chat
 inputMsg.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
