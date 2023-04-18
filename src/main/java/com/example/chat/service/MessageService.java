@@ -1,6 +1,7 @@
 package com.example.chat.service;
 
 import com.example.chat.model.ChatMessage;
+import com.example.chat.model.MessageType;
 import com.example.chat.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,15 +15,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class MessageService {
     @Autowired
     public MessageRepository messageRepository;
-    //    List<ChatMessage> publicMessages = new CopyOnWriteArrayList<>();
     Map<Map.Entry<String, String>, List<ChatMessage>> privateMessages = new ConcurrentHashMap<>();
 
     public List<ChatMessage> getPublicMessages() {
-        return messageRepository.findByMessageTypeIsNullOrderByDateAsc();
+        return messageRepository.findByMessageTypeEqualsOrderByDateAsc(MessageType.PUBLIC);
     }
 
     public void addPublicMessage(ChatMessage msg) {
-//        publicMessages.add(msg);
         messageRepository.save(msg);
     }
 

@@ -179,6 +179,7 @@ function sendMessage() {
                 "sender": this.username,
                 "message": inputMsg.value,
                 "date": getCurrentDate(),
+                "messageType": "PUBLIC"
             }))
         } else {
             stompClient.send("/app/chat.send.private", {}, JSON.stringify({
