@@ -1,24 +1,27 @@
 package com.example.chat.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
-/**
- * This class is used to represent a message in the chat.
- */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(collection = "messages")
+@Entity
 public class ChatMessage {
-    @MongoId
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    private long id;
+    @Column
     private String sender;
+    @Column
     private String message;
+    @Column
     private String date;
+    @Column
     private String sendTo;
+    @Column
     private MessageType messageType;
 }
