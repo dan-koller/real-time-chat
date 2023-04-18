@@ -152,3 +152,6 @@ MYSQL_DATABASE_URL=jdbc:mysql://localhost:3306/chat
 MYSQL_DATABASE_USERNAME=<YOUR_USERNAME>
 MYSQL_DATABASE_PASSWORD=<YOUR_PASSWORD>
 ```
+
+_If you want to automatically create the database and tables, add `?createDatabaseIfNotExist=true` to your connection
+string._
