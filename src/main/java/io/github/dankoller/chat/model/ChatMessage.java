@@ -1,4 +1,4 @@
-package com.example.chat.model;
+package io.github.dankoller.chat.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

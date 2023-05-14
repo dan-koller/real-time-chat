@@ -1,4 +1,4 @@
-package com.example.chat;
+package io.github.dankoller.chat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

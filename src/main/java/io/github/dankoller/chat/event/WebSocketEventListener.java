@@ -1,6 +1,6 @@
-package com.example.chat.event;
+package io.github.dankoller.chat.event;
 
-import com.example.chat.service.UserService;
+import io.github.dankoller.chat.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.messaging.simp.SimpMessagingTemplate;

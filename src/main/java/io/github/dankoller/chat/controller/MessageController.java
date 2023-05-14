@@ -1,7 +1,7 @@
-package com.example.chat.controller;
+package io.github.dankoller.chat.controller;
 
-import com.example.chat.model.ChatMessage;
-import com.example.chat.service.MessageService;
+import io.github.dankoller.chat.model.ChatMessage;
+import io.github.dankoller.chat.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

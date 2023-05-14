@@ -1,4 +1,4 @@
-package com.example.chat.service;
+package io.github.dankoller.chat.service;
 
 import org.springframework.stereotype.Component;
 

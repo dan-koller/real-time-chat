@@ -1,6 +1,6 @@
-package com.example.chat.controller;
+package io.github.dankoller.chat.controller;
 
-import com.example.chat.service.UserService;
+import io.github.dankoller.chat.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

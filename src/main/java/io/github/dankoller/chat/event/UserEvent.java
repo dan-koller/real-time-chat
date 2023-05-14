@@ -1,4 +1,4 @@
-package com.example.chat.event;
+package io.github.dankoller.chat.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

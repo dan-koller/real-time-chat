@@ -1,4 +1,4 @@
-package com.example.chat.event;
+package io.github.dankoller.chat.event;
 
 /**
  * This enum is used to represent the type of user event. This is used in the UserEvent class.

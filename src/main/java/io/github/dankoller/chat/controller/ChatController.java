@@ -1,12 +1,12 @@
-package com.example.chat.controller;
+package io.github.dankoller.chat.controller;
 
-import com.example.chat.event.UserEvent;
-import com.example.chat.event.UserEventType;
-import com.example.chat.model.ChatMessage;
-import com.example.chat.model.MessageType;
-import com.example.chat.model.User;
-import com.example.chat.service.MessageService;
-import com.example.chat.service.UserService;
+import io.github.dankoller.chat.event.UserEvent;
+import io.github.dankoller.chat.event.UserEventType;
+import io.github.dankoller.chat.model.ChatMessage;
+import io.github.dankoller.chat.model.MessageType;
+import io.github.dankoller.chat.model.User;
+import io.github.dankoller.chat.service.MessageService;
+import io.github.dankoller.chat.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
