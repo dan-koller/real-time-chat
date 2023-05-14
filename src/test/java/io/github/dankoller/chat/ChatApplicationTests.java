@@ -1,4 +1,4 @@
-package com.example.chat;
+package io.github.dankoller.chat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
