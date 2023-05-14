@@ -1,8 +1,9 @@
-package com.example.chat.service;
+package io.github.dankoller.chat.service;
 
-import com.example.chat.model.ChatMessage;
-import com.example.chat.model.MessageType;
-import com.example.chat.repository.MessageRepository;
+import io.github.dankoller.chat.model.ChatMessage;
+import io.github.dankoller.chat.model.MessageType;
+import io.github.dankoller.chat.repository.MessageRepository;
+import io.github.dankoller.chat.util.ChatMessageTimestampComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,9 @@ public class MessageService {
     Map<Map.Entry<String, String>, List<ChatMessage>> privateMessages = new ConcurrentHashMap<>();
 
     public List<ChatMessage> getPublicMessages() {
-        return messageRepository.findByMessageTypeEqualsOrderByDateAsc(MessageType.PUBLIC);
+        List<ChatMessage> messages = messageRepository.findByMessageTypeEquals(MessageType.PUBLIC);
+        messages.sort(new ChatMessageTimestampComparator());
+        return messages;
     }
 
     public void addPublicMessage(ChatMessage msg) {
@@ -43,7 +46,8 @@ public class MessageService {
 
     public List<ChatMessage> getPrivateMessages(String userA, String userB) {
         // Query the database for messages between userA and userB
-        List<ChatMessage> messages = messageRepository.findBySenderAndSendToOrSenderAndSendToOrderByDateAsc(userA, userB, userB, userA);
+        List<ChatMessage> messages = messageRepository.findBySenderAndSendToOrSenderAndSendTo(userA, userB, userB, userA);
+        messages.sort(new ChatMessageTimestampComparator());
 
         // Store the messages in the privateMessages map
         Map.Entry<String, String> entry = Map.entry(userA, userB);
@@ -52,7 +56,6 @@ public class MessageService {
         }
         privateMessages.put(entry, new CopyOnWriteArrayList<>(messages));
 
-        // Return the messages
         return messages;
     }
 }
