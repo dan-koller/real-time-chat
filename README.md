@@ -55,12 +55,11 @@ The application uses WebSockets and the STOMP protocol to facilitate real-time c
 server. When a user sends a message, the message is stored in the MySQL database and broadcast to all other users in the
 chat room.
 
-The application also includes basic security features to prevent unauthorized access. Users must be authenticated in
-order to join the chat room, and usernames are checked to ensure that they are unique.
+Users must be authenticated in order to join the chat room, and usernames are checked to ensure that they are unique.
 
 If you want to rebuild this project from scratch, you can take a look at the provided [resources](docs/RESOURCES.md).
 You can find FAQs [here](docs/FAQ.md).
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
